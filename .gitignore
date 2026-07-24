@@ -1,2 +1,12 @@
 addressbook.iml
 target
+
+# Local terraform directory (re-downloaded by Jenkins)
+.terraform/
+
+# Terraform state files (contain sensitive data)
+*.tfstate
+*.tfstate.backup
+
+# Lock files (can cause OS-specific conflicts)
+.terraform.lock.hcl
