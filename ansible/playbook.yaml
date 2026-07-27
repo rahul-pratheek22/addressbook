@@ -26,3 +26,19 @@
         name: tomcat
         state: started
         enabled: yes
+
+    - name: Ensure Tomcat ROOT directory exists
+      ansible.builtin.file:
+        path: /var/lib/tomcat/webapps/ROOT
+        state: directory
+        owner: tomcat
+        group: tomcat
+        mode: '0755'
+
+    - name: Create index.html with simple plain text
+      ansible.builtin.copy:
+        content: "Tomcat Server Is Working Fine"
+        dest: /var/lib/tomcat/webapps/ROOT/index.html
+        owner: tomcat
+        group: tomcat
+        mode: '0644'
