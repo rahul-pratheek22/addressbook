@@ -56,7 +56,7 @@ resource "aws_instance" "remote_servers" {
 
 resource "local_file" "ansible_inventory" {
   content = templatefile("inventory.tmpl", {
-    remote_ips = aws_instance.remote_servers[*].public_ip
+    remote_ips = aws_instance.remote_servers[*].private_ip
   })
   filename        = "inventory"
   file_permission = "0644"
