@@ -87,6 +87,7 @@
                 <version>9.2.3.v20140905</version>
             </plugin>
         </plugins>
+		<finalName>addressbook</finalName>
     </build>
     <distributionManagement>
         <repository>
