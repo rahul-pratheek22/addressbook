@@ -63,11 +63,11 @@ resource "aws_security_group" "remote_sg" {
         security_groups = [data.aws_security_group.control_server_sg.id]
     }
     
-    # HTTP Access: Allow port 80 from Anywhere
+    # HTTP Access: Allow port 8080 from Anywhere
     
     ingress {
-        from_port   = 80
-        to_port     = 80
+        from_port   = 8080
+        to_port     = 8080
         protocol    = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
         }
