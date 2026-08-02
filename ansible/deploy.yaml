@@ -6,7 +6,7 @@
     - name: Copy addressbook.war to Tomcat webapp directory
       ansible.builtin.copy:
         src: /var/lib/jenkins/workspace/addressbook-pipeline/target/addressbook.war
-        dest: /var/lib/tomcat/webapp/addressbook.war
+        dest: /var/lib/tomcat/webapps/addressbook.war
         owner: tomcat
         group: tomcat
         mode: '0644'
