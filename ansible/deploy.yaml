@@ -1,0 +1,19 @@
+---
+- name: Deploy Java Application Artifact
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Copy addressbook.war to Tomcat webapp directory
+      ansible.builtin.copy:
+        src: /var/lib/jenkins/workspace/addressbook-pipeline/target/addressbook.war
+        dest: /var/lib/tomcat/webapp/addressbook.war
+        owner: tomcat
+        group: tomcat
+        mode: '0644'
+      notify: Restart Tomcat service
+
+  handlers:
+    - name: Restart Tomcat service
+      ansible.builtin.service:
+        name: tomcat
+        state: restarted
